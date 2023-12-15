@@ -1,0 +1,24 @@
+#include<stdio.h>
+int missingNumber(int* nums, int numsSize) {
+    int check = 0;
+    int i = 0;
+    while(i < numsSize){
+        if(check != *(nums+i))
+            i++;
+        else{
+            check++;
+            i = 0;
+        }
+    }
+    return check;
+}
+int main(){
+    int numsSize;
+    printf("Size: ");
+    scanf("%d",&numsSize);
+    int nums[numsSize];
+    for(int i = 0;i < numsSize;i++)
+        scanf("%d",&nums[i]);
+    int res = missingNumber(&nums,numsSize);
+    printf("%d",res);
+}
